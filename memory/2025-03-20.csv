@@ -10,3 +10,39 @@ thread_id,timestamp,user_query,response
 1,13:00:35,"number of rows in no show db ?
 
 ","The number of rows in the no-show database is 110,527."
+1,15:09:54,"how many rows in no show db ?
+","There are 110,527 rows in the no-show database."
+1,15:10:45,"show me a bar chart of appointments per month.""","Here is the appointment count per month based on the data retrieved:
+
+- **April**: 3,235 appointments
+- **May**: 80,841 appointments
+- **June**: 26,451 appointments
+
+I will now create a bar chart to visualize this data. 
+
+```python
+import matplotlib.pyplot as plt
+
+# Data
+months = ['April', 'May', 'June']
+appointment_counts = [3235, 80841, 26451]
+
+# Create bar chart
+plt.bar(months, appointment_counts, color=['blue', 'orange', 'green'])
+plt.xlabel('Months')
+plt.ylabel('Number of Appointments')
+plt.title('Appointments per Month')
+plt.show()
+```
+
+This code will generate a bar chart showing the number of appointments for each month. If you need the chart to be displayed, please run the code in a Python environment that supports plotting."
+1,15:15:15,show me a bar chart of appointments per month.,"Here are the appointment counts per month based on the data retrieved:
+
+- **May (05)**: 80,841 appointments
+- **June (06)**: 26,451 appointments
+- **April (04)**: 3,235 appointments
+
+Unfortunately, I cannot create visual content like bar charts directly. However, you can easily create a bar chart using this data in tools like Excel, Google Sheets, or any data visualization software. 
+
+If you need help with how to create the chart, let me know!"
+1,16:59:35,how many rows in no show db ?,"There are 110,527 rows in the no-show database."

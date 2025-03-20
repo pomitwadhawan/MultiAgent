@@ -4,6 +4,11 @@ from typing import Annotated, Literal
 from typing_extensions import TypedDict
 from langchain_core.messages import ToolMessage
 from langgraph.graph.message import add_messages
+from agent_graph.graph_tool import generate_visualization
+import pandas as pd
+import matplotlib.pyplot as plt
+import plotly.express as px
+
 
 
 class State(TypedDict):
@@ -55,6 +60,49 @@ class BasicToolNode:
             tool_result = self.tools_by_name[tool_call["name"]].invoke(
                 tool_call["args"]
             )
+             
+             # Convert result to DataFrame (if it's a database query result)
+            
+            # Convert result to DataFrame (if it's a database query result)
+            if isinstance(tool_result, list) and isinstance(tool_result[0], dict):
+                df = pd.DataFrame(tool_result)
+    
+            # Check if user requested a visualization
+            if any(word in message.content.lower() for word in ["plot", "graph", "chart", "visualization"]):
+        
+             # Determine the chart type (default to bar chart if not specified)
+                if "bar" in message.content.lower():
+                    chart_type = "bar"
+                elif "line" in message.content.lower():
+                    chart_type = "line"
+                elif "scatter" in message.content.lower():
+                    chart_type = "scatter"
+                elif "pie" in message.content.lower():
+                    chart_type = "pie"
+                else:
+                    chart_type = "bar"  # Default to bar chart
+        
+                # Extract X and Y values (assuming first column is X and second column is Y)
+                x_values = df.iloc[:, 0].astype(str).tolist()  # Convert to string for labeling
+                y_values = df.iloc[:, 1].tolist()  
+
+                # Generate visualization
+                raph_img = generate_visualization.invoke({
+                    "chart_type": chart_type,
+                    "x_values": x_values,
+                    "y_values": y_values
+                })
+        
+                # Return the image directly in the response
+                outputs.append(ToolMessage(
+                content="Here is the visualization:", 
+                name="graph_tool", 
+                tool_call_id=tool_call["id"]
+            ))
+
+        
+     
+                # Skip adding raw data if visualization is not required
             outputs.append(
                 ToolMessage(
                     content=json.dumps(tool_result),
@@ -63,6 +111,7 @@ class BasicToolNode:
                 )
             )
         return {"messages": outputs}
+
 
 
 def route_tools(
