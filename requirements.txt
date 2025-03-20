@@ -2,7 +2,7 @@ Chroma==0.2.0
 chroma-hnswlib==0.7.3
 chromadb==0.5.3
 gradio
-ipykernel==6.29.5
+ipykernel
 langchain
 langchain-chroma
 langchain-community
@@ -11,16 +11,20 @@ langchain-openai
 langchain-text-splitters==0.2.4
 langgraph
 langgraph-checkpoint==1.0.9
-langsmith==0.1.116
-numpy==1.26.4
-openai==1.44.0
-pandas==2.2.2
+langsmith
+numpy
+openai
+pandas
 pydantic
 pydantic_core
-pypdf==4.3.1
+pypdf
 pyprojroot==0.3.0
 PyYAML==6.0.2
 SQLAlchemy==2.0.34
+matplotlib
+plotly
+pandas
+seaborne
 
 
 
