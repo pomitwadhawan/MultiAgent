@@ -1,0 +1,19 @@
+thread_id,timestamp,user_query,response
+1,22:46:59,"how many rows in no_show db ?
+","There are 110,527 rows in the no-show database."
+1,22:47:37,"what is agentic ai ?
+","Agentic AI refers to a type of artificial intelligence that operates autonomously, allowing AI agents to act without human oversight. It serves as a comprehensive platform that facilitates seamless interaction between AI agents and humans, fostering collaboration. 
+
+Key features of Agentic AI include:
+
+1. **Autonomy**: Agentic AI can make decisions, take actions, and learn independently to achieve specific goals, similar to a virtual assistant that can think and adapt without constant direction.
+
+2. **Complex Network of Agents**: It operates through a network of autonomous software components known as ""agents,"" which draw from vast amounts of data and learn from user behavior to improve over time.
+
+3. **Advanced Technologies**: Agentic AI relies on a blend of technologies such as machine learning, natural language processing (NLP), and knowledge representation to help agents learn, communicate, and reason effectively.
+
+4. **Transformative Potential**: It is expected to transform various industries, including healthcare, finance, and manufacturing, by integrating with data platforms and handling complex tasks efficiently.
+
+For more detailed information, you can refer to the following articles:
+- [What is Agentic AI? | Salesforce US](https://www.salesforce.com/agentforce/what-is-agentic-ai/)
+- [AI Agents vs Agentic AI: What's the Difference and Why Does It Matter?](https://medium.com/@elisowski/ai-agents-vs-agentic-ai-whats-the-difference-and-why-does-it-matter-03159ee8c2b4)"
