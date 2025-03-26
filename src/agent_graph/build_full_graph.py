@@ -3,10 +3,8 @@ from langgraph.graph import StateGraph, START
 from langchain_openai import ChatOpenAI
 from agent_graph.noshow_sqlagent import query_noshow_sqldb
 from agent_graph.tool_chinook_sqlagent import query_chinook_sqldb
-from agent_graph.tool_travel_sqlagent import query_travel_sqldb
 from agent_graph.tool_lookup_policy_rag import lookup_swiss_airline_policy
 from agent_graph.tool_tavily_search import load_tavily_search_tool
-from agent_graph.tool_stories_rag import lookup_stories
 from agent_graph.tool_noshow_rag import lookup_noshow
 from agent_graph.load_tools_config import LoadToolsConfig
 from agent_graph.graph_tool import generate_visualization
@@ -55,9 +53,6 @@ def build_graph():
     # Load tools with their proper configs
     search_tool = load_tavily_search_tool(TOOLS_CFG.tavily_search_max_results)
     tools = [search_tool,
-             lookup_swiss_airline_policy,
-             lookup_stories,
-             query_travel_sqldb,
              query_chinook_sqldb,
              query_noshow_sqldb,
              generate_visualization,
@@ -74,9 +69,6 @@ def build_graph():
     tool_node = BasicToolNode(
         tools=[
             search_tool,
-            lookup_swiss_airline_policy,
-            lookup_stories,
-            query_travel_sqldb,
             query_chinook_sqldb,
             query_noshow_sqldb,
             generate_visualization,
