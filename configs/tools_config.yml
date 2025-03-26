@@ -13,7 +13,7 @@ swiss_airline_policy_rag:
   chunk_overlap: 100
   k: 2
 
-  noshow_bestpractices_rag:
+noshow_rag:
   unstructured_docs: "data/unstructured_docs/noshow_bestpractices"
   vectordb: "data/noshow_bestpractices_vectordb"
   collection_name: rag-chroma

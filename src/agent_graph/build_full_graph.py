@@ -7,6 +7,7 @@ from agent_graph.tool_travel_sqlagent import query_travel_sqldb
 from agent_graph.tool_lookup_policy_rag import lookup_swiss_airline_policy
 from agent_graph.tool_tavily_search import load_tavily_search_tool
 from agent_graph.tool_stories_rag import lookup_stories
+from agent_graph.tool_noshow_rag import lookup_noshow
 from agent_graph.load_tools_config import LoadToolsConfig
 from agent_graph.graph_tool import generate_visualization
 from agent_graph.agent_backend import State, BasicToolNode, route_tools, plot_agent_schema
@@ -59,7 +60,8 @@ def build_graph():
              query_travel_sqldb,
              query_chinook_sqldb,
              query_noshow_sqldb,
-             generate_visualization
+             generate_visualization,
+             lookup_noshow
              ]
     # Tell the LLM which tools it can call
     primary_llm_with_tools = primary_llm.bind_tools(tools)
@@ -77,7 +79,8 @@ def build_graph():
             query_travel_sqldb,
             query_chinook_sqldb,
             query_noshow_sqldb,
-            generate_visualization
+            generate_visualization,
+            lookup_noshow
         ])
     graph_builder.add_node("tools", tool_node)
     # The `tools_condition` function returns "tools" if the chatbot asks to use a tool, and "__end__" if

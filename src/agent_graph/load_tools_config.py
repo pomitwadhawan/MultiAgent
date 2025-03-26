@@ -53,6 +53,20 @@ class LoadToolsConfig:
         self.stories_rag_chunk_overlap = app_config["stories_rag"]["chunk_overlap"]
         self.stories_rag_collection_name = app_config["stories_rag"]["collection_name"]
 
+        # NOShow RAG configs
+        self.noshow_rag_llm = app_config["noshow_rag"]["llm"]
+        self.noshow_rag_llm_temperature = float(
+            app_config["noshow_rag"]["llm_temperature"])
+        self.noshow_rag_embedding_model = app_config["noshow_rag"]["embedding_model"]
+        self.noshow_rag_vectordb_directory = str(here(
+            app_config["noshow_rag"]["vectordb"]))  # needs to be strin for summation in chromadb backend: self._settings.require("persist_directory") + "/chroma.sqlite3"
+        self.noshow_rag_unstructured_docs_directory = str(here(
+            app_config["noshow_rag"]["unstructured_docs"]))
+        self.noshow_rag_k = app_config["noshow_rag"]["k"]
+        self.noshow_rag_chunk_size = app_config["noshow_rag"]["chunk_size"]
+        self.noshow_rag_chunk_overlap = app_config["noshow_rag"]["chunk_overlap"]
+        self.noshow_rag_collection_name = app_config["noshow_rag"]["collection_name"]
+
         # Travel SQL Agent configs
         self.travel_sqldb_directory = str(here(
             app_config["travel_sqlagent_configs"]["travel_sqldb_dir"]))
