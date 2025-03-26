@@ -53,7 +53,7 @@ def lookup_noshow(query: str) -> str:
     rag_tool = NoShowRAGTool(
         embedding_model=TOOLS_CFG.noshow_rag_embedding_model,
         vectordb_dir=TOOLS_CFG.noshow_rag_vectordb_directory,
-        k=TOOLS_CFG.stories_rag_k,
+        k=TOOLS_CFG.noshow_rag_k,
         collection_name=TOOLS_CFG.noshow_rag_collection_name)
     docs = rag_tool.vectordb.similarity_search(query, k=rag_tool.k)
     return "\n\n".join([doc.page_content for doc in docs])
